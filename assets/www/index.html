@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+	<script src="js/jquery-1.8.2.min.js"></script>
+	<script src="js/jquery.mobile-1.2.0.min.js"></script>
+	 <script src="js/pesome/common.js"></script>
+	<script src="cordova-2.2.0.js"></script>
+</head>
+<body>
+
+<!-- Home -->
+<div data-role="page" id="loginPage">
+    <div data-role="content">
+        <form action="">
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup">
+                    <label for="email">
+                        Email:
+                    </label>
+                    <input name="email" id="email" placeholder="" value="dungtqa@gmail.com" type="text" />
+                </fieldset>
+            </div>
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup">
+                    <label for="password">
+                        Password
+                    </label>
+                    <input name="password" id="password" placeholder="" value="111111" type="password" />
+                </fieldset>
+            </div>
+            <input type="button" value="Submit" id="btLogin"/>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+
+        $('#btLogin').bind('click', {}, function(){
+            $.ajax({
+                url: $api_url.auth(),
+                data: {'client_id' : $client_id, 'client_secret' : $client_secret, 'email' : $('#email').val(), 'password':$('#password').val()},
+                dataType: "json",
+                contentType: "application/json",
+                async: false,
+                success: function (res) {
+                    console.log('>>>>>>>>>>>>>>>>>>>>>'+res.access_token+'<<<<<<<<<<<<<<<<<<<<<<<');
+                    window.localStorage.setItem("access_token", res.access_token);
+                    window.location.href = 'petopic.html';
+                },
+                error: function(e) {
+                    console.log('---------------');
+
+                    console.log(e.message);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
