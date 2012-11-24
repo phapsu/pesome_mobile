@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Detail</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        </head>
+    <body>
+        <div></div>
+        <div data-role="page" id="petick-audio">
+            <div data-role="header" data-position="fixed">
+                    <h1>Audio</h1>
+                    <a href="#" data-rel="back" data-icon="arrow-l" data-transition="flip">Back</a>
+            </div>
+            <div data-role="content">
+                <div class="wrapper">
+                    <div class="map_container" style="">
+                        <div id="audioPosition">
+                                <input type="range" name="slider" id="slider" value="0" min="0" max="100" data-highlight="true" disabled />
+                        </div>
+                        <div data-role="controlgroup" data-type="horizontal">
+                                <input type="button" id="play" data-role="button" data-icon="audio-play" data-iconpos="notext" value="Play" />
+                                <input type="button" id="pause" data-role="button" data-icon="audio-pause" data-iconpos="notext" value="Pause" disabled />
+                                <input type="button" id="stop" data-role="button" data-icon="audio-stop" data-iconpos="notext" value="Stop" />
+                                <input type="button" id="rewind" data-role="button" data-icon="audio-rewind" data-iconpos="notext" value="Rewind" />
+                                <input type="button" id="record" data-role="button" data-icon="audio-record" data-iconpos="notext" value="Record">
+                        </div>
+                        <div id="recording"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>

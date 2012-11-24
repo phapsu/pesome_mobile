@@ -159,7 +159,7 @@
 .ui-icon-heart , .ui-icon-wrench , .ui-icon-play , .ui-icon-pause , .ui-icon-stop , .ui-icon-person , .ui-icon-music,
 .ui-icon-wifi , .ui-icon-phone , .ui-icon-power ,
 .ui-icon-lightning , .ui-icon-drink , .ui-icon-android {
-	background-image: url('../img/icons-18-black-pack.png') !important;
+	/*background-image: url('../img/icons-18-black-pack.png') !important;*/
 }
 .ui-icon:not(.ui-icon-loading){
 	background: none;

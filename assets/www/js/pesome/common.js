@@ -31,10 +31,23 @@ var $api_url  = {
     petopic_getpeticks : function(id){
         return $full_base_url+'/api/petopics/get_peticks?id='+id+'&access_token='+ $access_token;
     },
+    petick_detail : function(id){
+        return $full_base_url+'/api/petopics/get_petick?tick_id='+id+'&access_token='+ $access_token;
+    },
+    petopic_getlink : function(link_id){
+        return $full_base_url+'/api/peticks/get_link?link_id='+link_id+'&access_token='+ $access_token;
+    },
     petopic_getaudio : function(audio_id){
         return $full_base_url+'/api/peticks/get_audio?audio_id='+audio_id+'&access_token='+ $access_token;
+    },
+    petopic_getvideo : function(video_id){
+        return $full_base_url+'/api/peticks/get_video?video_id='+video_id+'&access_token='+ $access_token;
     }
 };
+
+/*
+ * URL utility
+ */
 var $urlUtility  = {
     getVars : function(){
         var vars = [], hash;
