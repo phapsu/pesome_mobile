@@ -12,6 +12,7 @@ public class Pesome extends DroidGap {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_pesome);
         super.loadUrl("file:///android_asset/www/index.html");
+       
     }
 
     @Override
