@@ -1,17 +1,16 @@
 $('#petick-audio').live('pageshow', function(event) {
-    var id = $urlUtility.getVars()["id"];
+    var petopic_id = $urlUtility.getVars()["petopic_id"];
+    var tick_id = $urlUtility.getVars()["tick_id"];
 
    $.ajax({
-            url: $api_url.petick_detail(id),
+            url: $api_url.petick_detail(petopic_id, tick_id),
             dataType: "jsonp",
             contentType: "application/json",
             async: false,
             success: function (res) {
 
-                    var petick = res.petick;
-                    var type = petick.tick_attach_type;
-                    var attach_id = petick.tick_attach_id;
-                    $petick_audio.detail(attach_id);
+                    var petick = res.petick; 
+                    $petick_audio.detail(petick);
 
             },
             error: function(e) {
@@ -21,80 +20,69 @@ $('#petick-audio').live('pageshow', function(event) {
 
     var $petick_audio = {
 
-        detail : function(audio_id){
-            $.ajax({
-                url: $api_url.petopic_getaudio(audio_id),
-                dataType: "jsonp",
-                contentType: "application/json",
-                async: false,
-                success: function (data) {
-                    audioURL = encodeURIComponent($.trim($full_base_url + data.audio.url));
-                    var play_btn = $('#play');
-                    var pause_btn = $('#pause');
-                    var stop_btn = $('#stop');
-                    var rewind_btn = $('#rewind');
-                    var record_btn = $('#record');
+        detail : function(data){
+           
+                audioURL = encodeURIComponent($.trim($full_base_url + data.audio.url));d(audioURL);
+                var play_btn = $('#play');
+                var pause_btn = $('#pause');
+                var stop_btn = $('#stop');
+                var rewind_btn = $('#rewind');
+                var record_btn = $('#record');
 
-                    play_btn.click(function(){
+                play_btn.click(function(){
 
-                            playAudio(audioURL);
+                        playAudio(audioURL);
 
-                            $(this).button('disable');
-                            pause_btn.button('enable');
-                    });
+                        $(this).button('disable');
+                        pause_btn.button('enable');
+                });
 
-                    pause_btn.click(function(){
-                            pauseAudio();
+                pause_btn.click(function(){
+                        pauseAudio();
 
-                            $(this).button('disable');
-                            play_btn.button('enable');
-                    });
-
-                    stop_btn.click(function(){
-                            stopAudio();
-                            // reset slider
-                            $('#slider').val(0);
-                            $('#slider').slider('refresh');
-
-                        pause_btn.button('disable');
-                            play_btn.button('enable');
-                    });
-
-                    rewind_btn.click(function(){
-                            stopAudio();
-                            playAudio(audioURL);
-
+                        $(this).button('disable');
                         play_btn.button('enable');
-                            pause_btn.button('disable');
-                    });
+                });
 
-                    record_btn.click(function(){
-                            stopAudio();
-                            $(this).button('disable');
-                            play_btn.button('enable');
-                            pause_btn.button('disable');
+                stop_btn.click(function(){
+                        stopAudio();
+                        // reset slider
+                        $('#slider').val(0);
+                        $('#slider').slider('refresh');
 
-                            var recsec = 10;
-                            recordAudio('record.mp3');
-                            var rectxt = setInterval(function(){
-                                    var recording = $('#recording');
-                                    if(recsec == 0) {
-                                            clearInterval(rectxt);
-                                            recording.text('Play recording');
-                                            record_btn.button('enable');
-                                            playAudio('record.mp3');
-                                    } else {
-                                            recording.text('Stop recording in ' + recsec + ' seconds' );
-                                            --recsec;
-                                    }
-                            },1000);
-                    });
+                    pause_btn.button('disable');
+                        play_btn.button('enable');
+                });
 
-                },
-                error: function(e) {
-                    console.log(e.message);
-                }
-            });
+                rewind_btn.click(function(){
+                        stopAudio();
+                        playAudio(audioURL);
+
+                    play_btn.button('enable');
+                        pause_btn.button('disable');
+                });
+
+                record_btn.click(function(){
+                        stopAudio();
+                        $(this).button('disable');
+                        play_btn.button('enable');
+                        pause_btn.button('disable');
+
+                        var recsec = 10;
+                        recordAudio('record.mp3');
+                        var rectxt = setInterval(function(){
+                                var recording = $('#recording');
+                                if(recsec == 0) {
+                                        clearInterval(rectxt);
+                                        recording.text('Play recording');
+                                        record_btn.button('enable');
+                                        playAudio('record.mp3');
+                                } else {
+                                        recording.text('Stop recording in ' + recsec + ' seconds' );
+                                        --recsec;
+                                }
+                        },1000);
+                });                
         }
     }
 
