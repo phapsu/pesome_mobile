@@ -1,24 +1,25 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
     <head>
         <title>My Page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/jqm.slidemenu.css" />
+        <!--<link rel="stylesheet" href="css/jqm.slidemenu.css" />-->
         <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
-        <!--<link rel="stylesheet" href="css/pesome.css" />-->        
         <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="css/photoswipe.css" />
-        <link rel="stylesheet" href="css/audio.css" />
         
         <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/json2.js"></script>
         <script src="js/jquery.mobile-1.2.0.min.js"></script>   
         <script src="cordova-2.2.0.js"></script> 
         <script src="js/pesome/common.js"></script>
-        <script src="js/video.js"></script>
-        <script type="text/javascript" src="js/klass.min.js"></script>
-        <script type="text/javascript" src="js/code.photoswipe-3.0.5.min.js"></script>
+        <script src="js/jquery.tmpl.min.js"></script>
+        <!--petick audio-->
+        <link rel="stylesheet" type="text/css" href="css/audio.css">
+        <!--petick photo-->
+        <link rel="stylesheet" href="css/photoswipe.css" />
     </head>
     <body>
+    <!--
         <div id="menu" class="slidemenu">
             <div id="profile">
                 <img src="img/tegan.jpg">
@@ -59,8 +60,9 @@
                 <li><a href="test.html" rel="external">Help</a></li>
             </ul>
         </div>
+-->
         <!-- Home -->
-        <div data-role="page" id="petopic">
+        <div data-role="page" id="page-petopic">
             <div data-role="header" data-position="absolute">
                 <a href="#" data-theme="b" data-icon="" class="showMenu">Menu</a>
                 <h1>Petopic</h1>
@@ -68,25 +70,44 @@
             
             <div class="wrapper">
                 <div class="map_container">
-                    <ul id="listposts" data-role="listview" data-inset="true"></ul>
+                    <!--<ul id="listposts" data-role="listview" data-inset="true"></ul>-->
+                    <div id="listposts"></div>
+                    <script id="tmplPetopic" type="text/x-jquery-tmpl">
+                        <article class="entry web isotope-item ">                            
+                            <a data-transition="slide" href="petopic_detail.html?id=${petopic.id}"><img src="http://dev.afterclassroom.com/${petopic.thumbnail}" alt=""></a>
+                            <p><strong>${petopic.title}</strong></p>
+                            <p>${petopic.description}</p>
+                        </article>
+                    </script>                    
                 </div>
             </div>
         </div>
+        <div class="loading" id="loader"><img src="img/loader.gif" alt="Loading..."><div><em>Loading the next set of posts...</em></div></div>
             
-        <script src="js/leftmenu.js"></script>        
-        <script src="js/pesome/petopic.js"></script>
-        <script src="js/pesome/petopic_detail.js"></script>
-        <!--<script src="js/pesome/petick.js"></script>-->
-        <script src="js/pesome/petick_audio.js"></script>
-        <script src="js/pesome/petick_video.js"></script>        
-        <script src="js/pesome/petick_link.js"></script>        
-        <script src="js/pesome/petick_photo.js"></script>        
+        <!--<script src="js/leftmenu.js"></script>-->    
+        <!--isotope-->
+        <script src="js/scrollpagination.js"></script>
+        <!--<script src="js/jquery.isotope.min.js"></script>-->   
         
-                
+        <script src="js/pesome/petopic.js"></script>
+        <script src='js/pesome/petopic_detail.js'></script>
+        <!--petick text-->
+        <script src="js/pesome/petick_text.js"></script>        
+        <!--petick link-->
+        <script src="js/pesome/petick_link.js"></script>
+        <!--petick audio-->
+        <script src="js/pesome/petick_audio.js"></script>
+        <!--petick photo-->
+        <script type="text/javascript" src="js/klass.min.js"></script>
+        <script type="text/javascript" src="js/code.photoswipe-3.0.5.min.js"></script>
+        <script src="js/pesome/petick_photo.js"></script>    
+        <!--petick video-->
+        <script src="js/video.js"></script>
+        <script src="js/pesome/petick_video.js"></script>           
+     
+        
         <script type="text/javascript">
             document.addEventListener('deviceready', this.deviceready, false);
         </script>
-        
-
     </body>
 </html>

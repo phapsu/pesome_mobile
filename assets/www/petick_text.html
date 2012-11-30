@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Detail</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div></div>
+        <div data-role="page" id="petick-text">
+            <div data-role="header" data-position="fixed" id="headerMain">
+                    <h1>Text</h1>
+                    <a href="#" data-rel="back" data-icon="arrow-l" data-transition="flip">Back</a>
+            </div>
+            <div data-role="content" id="contentMain">
+                <div class="wrapper">
+                    <div class="map_container" style="">
+                        <div id="textDetails">
+                            <h3 id="textTitle"></h3>
+                            <p id="textDesc"></p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- contentMain -->
+
+            <div id="commentZone"></div>
+            <script type="text/javascript">
+                $(function(){
+                    $('#commentZone').load('comment.html', function(){
+                       $('#petick-text').trigger('create');
+                    });
+                });
+            </script>
+        </div>
+    </body>
+</html>

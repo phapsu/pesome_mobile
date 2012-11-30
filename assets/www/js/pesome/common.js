@@ -30,10 +30,8 @@ var $api_url  = {
     },
     petopic_getpeticks : function(id){
         return $full_base_url+'/api/petopics/get_peticks?id='+id+'&access_token='+ $access_token;
-    },
-    petick_detail : function(petopic_id, tick_id){
-        return $full_base_url+'/api/petopics/get_petick?id='+petopic_id+'&tick_id='+tick_id+'&access_token='+ $access_token;
-    },
+    },    
+    
     petopic_getlink : function(link_id){
         return $full_base_url+'/api/peticks/get_link?link_id='+link_id+'&access_token='+ $access_token;
     },
@@ -42,6 +40,15 @@ var $api_url  = {
     },
     petopic_getvideo : function(video_id){
         return $full_base_url+'/api/peticks/get_video?video_id='+video_id+'&access_token='+ $access_token;
+    },
+    petick_detail : function(petopic_id, tick_id){
+        return $full_base_url+'/api/petopics/get_petick?id='+petopic_id+'&tick_id='+tick_id+'&access_token='+ $access_token;
+    },    
+    petick_postcomment : function(petopic_id){
+        return $full_base_url+'/api/peticks/create_comment?id='+petopic_id+'&access_token='+ $access_token;
+    },
+    petick_getcomment : function(tick_id){
+        return $full_base_url+'/api/peticks/get_comment?tick_id='+tick_id+'&access_token='+ $access_token;
     }
 };
 
@@ -69,3 +76,8 @@ function l(d){
 function d(d){
     console.dir(d);
 }
+
+// Constants
+var MISSING = "missing";
+var EMPTY = "";
+var NO_STATE = "ZZ"; 

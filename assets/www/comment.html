@@ -1,0 +1,200 @@
+<div data-role="content" id="commentContainer">
+    <div class="wrapper">
+        <div class="map_container" style="">
+            <form id="formComment">
+                <label id="commentLabel" for="what">Comment:</label>
+                <div id="commentDiv" data-role="fieldcontain">
+                    <textarea cols="40" rows="8" id="commentInput" name="comment"></textarea>
+                </div>
+
+                <div id="submitDiv" data-role="fieldcontain">
+                    <input type="submit" id="btSubmit" value="Submit" data-inline="true"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--<div data-role="footer" id="footerMain"></div>-->
+
+<div align="CENTER" data-role="content" id="errorDialog">
+    <div class="wrapper">
+        <div class="map_container" style="">
+            <div>Please fill in all required fields before submitting the form.</div>
+            <a id="buttonOK" name="buttonOK" href="#petick-text" data-role="button" data-inline="true">OK</a>
+        </div>
+    </div>
+</div>
+
+
+<!-- contentTransition is displayed after the form is submitted until a response is received back. -->
+<div data-role="content" id="contentTransition">
+    <div class="wrapper">
+        <div class="map_container" style="">
+            <div align="CENTER"><h4>Your comment has been sent. Please wait.</h4></div>
+            <div align="CENTER"><img id="spin" name="spin" src="img/wait.gif"/></div>
+        </div>
+    </div>
+</div>
+<!-- contentTransition -->
+
+
+<!-- list comments -->
+<div data-role="content" id="commentList"></div>
+<script id="tmplComment" type="text/x-jquery-tmpl">
+    <div class="wrapper">
+        <div class="map_container" style="">            
+            <p id="commentContent">${comment.comment}</p>            
+        </div>
+    </div>
+</script>
+<!-- contentTransition -->
+
+
+<script>   
+    
+    var headerMain = null;
+    var contentMain = null;
+    var commentContainer = null;
+    var commentList = null;
+    var footerMain = null;
+    var formComment = null;
+    var commentDiv = null;
+    var commentLabel = null;
+    var commentInput = null;
+    var errorDialog = null;
+    var contentTransition = null;
+    var tick_id = null;
+
+    function show_main_content(){
+        headerMain.show();
+        contentMain.show();
+        commentContainer.show();
+        commentList.show();
+        footerMain.show();
+    }
+    function hide_main_content(){
+        headerMain.hide();
+        contentMain.hide();
+        commentContainer.hide();
+        commentList.hide();
+        footerMain.hide();
+    }
+
+
+    function show_content_transition(){
+        contentTransition.show();
+    }
+
+    function hide_content_transition(){
+        contentTransition.hide();
+    }
+
+    function show_error_dialog(){
+        errorDialog.show();
+    }
+
+    function hide_error_dialog(){
+        errorDialog.hide();
+    }
+
+
+    var error_dialog = {
+        _show : function(){
+
+        },
+        _hide : function(){
+
+        }
+    };
+
+    $(document).ready(function() {
+        // Assign global variables
+        headerMain = $('#headerMain');
+        contentMain = $('#contentMain');
+        commentContainer = $('#commentContainer');
+        commentList = $('#commentList');
+        footerMain = $('#footerMain');
+        formComment = $('#formComment');
+        commentDiv = $('#commentDiv');
+        commentLabel = $('#commentLabel');
+        commentInput = $('#commentInput');
+        errorDialog = $('#errorDialog');
+        contentTransition = $('#contentTransition');
+        
+        //get url parameter
+        tick_id = $urlUtility.getVars()["tick_id"];
+
+        hide_error_dialog();
+        hide_content_transition();
+
+        $.ajax({
+            url: $api_url.petick_getcomment(tick_id),
+            dataType: "jsonp",
+            contentType: "application/json",
+            async: false,
+            success: function (res) {
+                $comment = res.tick.comments;
+                $("#tmplComment").tmpl( $comment ).appendTo("#commentList");
+            },
+            error: function(e) {
+                console.log(e.message);
+            }
+        });
+
+        $('#buttonOK').click(function() {
+            hide_error_dialog();
+            show_main_content();
+            return false;
+        });
+
+        $('#btSubmit').click(function() {
+
+            var err = false;
+            // Hide the Main content
+            hide_main_content();
+
+            // Reset the previously highlighted form elements
+            commentLabel.removeClass(MISSING);
+
+
+            if(commentInput.val()==null||commentInput.val()==EMPTY){
+                commentLabel.addClass(MISSING);
+                err = true;
+            }
+
+            // If validation fails, show Dialog content
+            if(err == true){
+                show_error_dialog();
+                return false;
+            }
+
+            // If validation passes, show Transition content
+            show_content_transition();
+
+            // Submit the form
+
+            l('>>>>>>>>>>>Start Comment<<<<<<<<<<<<<<<');
+            $.ajax({
+                type: 'POST',
+                url: $api_url.petick_postcomment('321'),
+                data: {'tick_id' : '2614', 'comment' : commentInput.val()},
+                crossDomain: true,
+                async: false,
+                success: function (res) {
+                    d(res);
+                    hide_content_transition();
+                    show_main_content();
+                },
+                error: function(e) {
+                    d(e.message);
+                    hide_content_transition();
+                    show_main_content();
+                }
+            });
+
+
+            return false;
+        });
+    });
+</script>

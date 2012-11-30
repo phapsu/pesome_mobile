@@ -275,3 +275,133 @@
 fieldset label{
     color: #fff;
 }
+
+/*Form validate*/
+label.missing  {
+	color:#FF0000;
+	font-weight:bold;
+}
+
+
+/*isotope*/
+
+.entry {
+/*	position:relative;
+	float:left;*/
+	margin-right:10px;
+	margin-bottom:20px;
+	cursor:pointer;
+
+	background:#fff;
+	padding:10px;
+	width:440px;
+
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+
+	-webkit-box-shadow:0 0 7px rgba(0,0,0,.1);
+	-moz-box-shadow:0 0 7px rgba(0,0,0,.1);
+	box-shadow:0 0 7px rgba(0,0,0,.1);
+}
+
+.thumbnail{
+    width:auto;
+    /*max-height:360px;*/
+    margin-bottom: 10px;
+    overflow: hidden;    
+  display: block;
+  padding: 4px;
+  line-height: 20px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  -webkit-transition: all 0.2s ease-in-out;
+     -moz-transition: all 0.2s ease-in-out;
+       -o-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+}
+
+a.thumbnail:hover {
+  border-color: #0088cc;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+     -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+          box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+
+.thumbnail > img {
+  display: block;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.thumbnail .caption {
+  padding: 9px;
+  color: #555555;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+.entry { width:258px; }
+}
+
+@media only screen and (max-device-width: 1024px) and (orientation:landscape) { 
+.entry { width:386px; }
+}
+
+@media only screen and (max-width: 767px) {
+.entry { width:260px; }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.entry { width:190px; }
+}
+
+
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.isotope,
+.isotope .isotope-item {
+-webkit-transition-duration: 0.8s;
+   -moz-transition-duration: 0.8s;
+        transition-duration: 0.8s;
+}
+
+.isotope {
+-webkit-transition-property: height, width;
+   -moz-transition-property: height, width;
+        transition-property: height, width;
+}
+
+.isotope .isotope-item {
+-webkit-transition-property: -webkit-transform, opacity;
+   -moz-transition-property:    -moz-transform, opacity;
+        transition-property:         transform, opacity;
+}
+
+div.loading{
+    background: none repeat scroll 0 0 #000000;
+    border-radius: 10px 10px 10px 10px;
+    bottom: 40px;
+    color: #FFFFFF;
+    left: 45%;
+    opacity: 0.8;
+    padding: 10px;
+    position: fixed;
+    text-align: center;
+    width: 200px;
+    z-index: 100;
+    display: none;
+}

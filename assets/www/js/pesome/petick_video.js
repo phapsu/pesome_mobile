@@ -8,7 +8,7 @@ $('#petick-video').live('pageshow', function(event) {
             contentType: "application/json",
             async: false,
             success: function (res) {
-                    var petick = res.petick;                    
+                    var petick = res.petick;
                     $petick_video.detail(petick);
 
             },
@@ -20,7 +20,7 @@ $('#petick-video').live('pageshow', function(event) {
     var $petick_video = {
 
         detail : function(petick){
-            
+
             video = petick.video;
 
             title = video.title;
