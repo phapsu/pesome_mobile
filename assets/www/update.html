@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="css/jquery.mobile-1.2.0.css" />
+<link rel="stylesheet" href="css/jqm-icon-pack-2.1.2-fa.css" />
+<link rel="stylesheet" href="css/pesome.css" />
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.2.0.js"></script>
+<script src="cordova-2.2.0.js"></script> 
+<script src="js/pesome/common.js"></script>
+
+<div data-role="page" class="overlayUpdate">
+    <div data-role="header" data-position="fixed">
+        <h1>Update PeTopic</h1>
+        <a data-rel="back" data-theme="e">Cancel</a>
+        <a data-rel="submit" data-theme="e">Submit</a>
+    </div>
+    <div data-role="content">
+        <form class="form-background">
+            <fieldset data-role="controlgroup">
+                <label for="name">Catelogy</label>
+                <div class="catelogy-update">
+                    <select name="select-choice-1" id="select-choice-custom" data-native-menu="false">
+                        <option value="design">Design</option>
+                        <option value="architecture">Architecture</option>
+                        <option value="business">Business</option>
+                        <option value="adorable">Adorable</option>
+                        <option value="bird lover">Bird lover</option>
+                        <option value="Cars & Motocycles">Cars & Motocycles</option>
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset data-role="controlgroup">
+                <label for="text">Title</label>
+                <input type="text" id="email" name="text" />
+            </fieldset>
+            <fieldset data-role="controlgroup">
+                <label>Image</label>
+                <div class="my-breakpoint">
+                    <img class="ui-block-a" style="float: none" src="img/docs/h-slider-3.jpg" />
+                </div>
+                <div><input type="file" id="file" name="file" /></div>
+            </fieldset>
+            <fieldset data-role="controlgroup">
+                <label>Description</label>
+                <textarea name="textarea" id="textarea"></textarea>
+            </fieldset>
+        </form>
+    </div>
+</div>

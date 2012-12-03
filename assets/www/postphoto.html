@@ -1,0 +1,97 @@
+<link rel="stylesheet" href="css/jquery.mobile-1.2.0.css" />
+<link rel="stylesheet" href="css/jqm-icon-pack-2.1.2-fa.css" />
+<link rel="stylesheet" href="css/pesome.css" />
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.2.0.js"></script>
+
+<div data-role="page" class="overlayUpdate">
+    <div data-role="header" data-position="fixed">
+        <h1>Post Audio</h1>
+        <a href="index.html" data-theme="e">Cancel</a>
+        <a data-rel="submit" data-theme="e">Post</a>
+    </div>
+    <div data-role="content">
+
+
+
+        <form class="form-background">
+            <strong>Photo Ablum</strong>
+
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">
+                    <div>
+                        <select name="select-choice-1" id="select-choice-custom" data-native-menu="false" data-mini="true">
+                            <option value="Photo Albumm 1">Photo Albumm 1</option>
+                            <option value="Photo Albumm 2">Photo Albumm 2</option>
+                            <option value="Photo Albumm 3">Photo Albumm 3</option>
+                            <option value="Photo Albumm 4">Photo Albumm 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ui-block-b">
+                    <a href="#popupDialog" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-mini="true">Form</a>
+                    <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="c" style="max-width:400px;" class="ui-corner-all">
+                        <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+                            <h3 class="ui-title">Album Name</h3>
+                            <input type="text" name="name" id="basic" value="" />
+                            <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="e"  data-mini="true">Cancel</a>
+                            <a href="#" data-role="button" data-inline="true" data-rel="back" data-transition="flow" data-theme="e" data-mini="true">Create</a>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset data-role="controlgroup">
+                <label>Add File</label>
+                <input type="file" id="file" name="file" />
+            </fieldset>
+
+            <div class="de-listview" style="padding:10px">
+                <ul data-role="listview" data-theme="f">
+                    <li>
+                        <a href="index.html" data-theme="f">
+                            <img src="images/docs/album-ws.jpg" />
+                            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat.</h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="de-listview" style="padding:10px">
+                <ul data-role="listview" data-theme="f">
+                    <li>
+                        <a href="index.html" data-theme="f">
+                            <img src="images/docs/album-ws.jpg" />
+                            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat.</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html" data-theme="f">
+                            <img src="images/docs/album-hc.jpg" />
+                            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat.</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html" data-theme="f">
+                            <img src="images/docs/album-ok.jpg" />
+                            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat.</h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
