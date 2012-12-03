@@ -8,17 +8,26 @@
     <body>
         <div></div>
         <div data-role="page" id="petick-photo">
-            <div data-role="header" data-position="fixed">
+            <div data-role="header" data-position="fixed" id="headerMain">
                     <h1>Photo</h1>
                     <a href="#" data-rel="back" data-icon="arrow-l" data-transition="flip">Back</a>
             </div>
-            <div data-role="content">
+            <div data-role="content" id="contentMain">
                 <div class="wrapper">
                     <div class="map_container" style="">                        
                         <ul id="gallery" class="gallery"></ul>
                     </div>
                 </div>
             </div>
+            
+            <div id="commentZone"></div>
+            <script type="text/javascript">
+                $(function(){
+                    $('#commentZone').load('comment.html', function(){
+                       $('#petick-photo').trigger('create');
+                    });
+                });
+            </script>
         </div>
     </body>
 </html>

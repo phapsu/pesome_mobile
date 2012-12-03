@@ -8,7 +8,7 @@
                 </div>
 
                 <div id="submitDiv" data-role="fieldcontain">
-                    <input type="submit" id="btSubmit" value="Submit" data-inline="true"/>
+                    <input type="submit" id="btSubmitComment" value="Submit" data-inline="true"/>
                 </div>
             </form>
         </div>
@@ -21,7 +21,7 @@
     <div class="wrapper">
         <div class="map_container" style="">
             <div>Please fill in all required fields before submitting the form.</div>
-            <a id="buttonOK" name="buttonOK" href="#petick-text" data-role="button" data-inline="true">OK</a>
+            <a id="buttonCommentOK" name="buttonCommentOK" href="#petick-text" data-role="button" data-inline="true">OK</a>
         </div>
     </div>
 </div>
@@ -43,16 +43,16 @@
 <div data-role="content" id="commentList"></div>
 <script id="tmplComment" type="text/x-jquery-tmpl">
     <div class="wrapper">
-        <div class="map_container" style="">            
-            <p id="commentContent">${comment.comment}</p>            
+        <div class="map_container" style="">
+            <p id="commentContent">${comment.comment}</p>
         </div>
     </div>
 </script>
 <!-- contentTransition -->
 
 
-<script>   
-    
+<script>
+
     var headerMain = null;
     var contentMain = null;
     var commentContainer = null;
@@ -82,8 +82,8 @@
     }
 
 
-    function show_content_transition(){
-        contentTransition.show();
+    function show_content_transition(callback){l('show lenn-----------------');
+        contentTransition.show('fast', callback);
     }
 
     function hide_content_transition(){
@@ -99,14 +99,23 @@
     }
 
 
-    var error_dialog = {
-        _show : function(){
+    function loadCommentList(tick_id){
+        $.ajax({
+            url: $api_url.petick_getcomment(tick_id),
+            dataType: "jsonp",
+            contentType: "application/json",
+            async: false,
+            success: function (res) {
+                $comment = res.tick.comments;
+                $('#commentList').html("");
+                $("#tmplComment").tmpl( $comment ).appendTo("#commentList");
+            },
+            error: function(e) {
+                console.log(e.message);
+            }
+        });        
+    }
 
-        },
-        _hide : function(){
-
-        }
-    };
 
     $(document).ready(function() {
         // Assign global variables
@@ -121,34 +130,23 @@
         commentInput = $('#commentInput');
         errorDialog = $('#errorDialog');
         contentTransition = $('#contentTransition');
-        
+
         //get url parameter
+        petopic_id = $urlUtility.getVars()["petopic_id"];
         tick_id = $urlUtility.getVars()["tick_id"];
 
         hide_error_dialog();
         hide_content_transition();
 
-        $.ajax({
-            url: $api_url.petick_getcomment(tick_id),
-            dataType: "jsonp",
-            contentType: "application/json",
-            async: false,
-            success: function (res) {
-                $comment = res.tick.comments;
-                $("#tmplComment").tmpl( $comment ).appendTo("#commentList");
-            },
-            error: function(e) {
-                console.log(e.message);
-            }
-        });
+        loadCommentList(tick_id);
 
-        $('#buttonOK').click(function() {
+        $('#buttonCommentOK').click(function() {
             hide_error_dialog();
             show_main_content();
             return false;
         });
 
-        $('#btSubmit').click(function() {
+        $('#btSubmitComment').click(function() {
 
             var err = false;
             // Hide the Main content
@@ -170,29 +168,30 @@
             }
 
             // If validation passes, show Transition content
-            show_content_transition();
+            show_content_transition(doPostComment);
 
             // Submit the form
 
-            l('>>>>>>>>>>>Start Comment<<<<<<<<<<<<<<<');
-            $.ajax({
-                type: 'POST',
-                url: $api_url.petick_postcomment('321'),
-                data: {'tick_id' : '2614', 'comment' : commentInput.val()},
-                crossDomain: true,
-                async: false,
-                success: function (res) {
-                    d(res);
-                    hide_content_transition();
-                    show_main_content();
-                },
-                error: function(e) {
-                    d(e.message);
-                    hide_content_transition();
-                    show_main_content();
-                }
-            });
-
+            function doPostComment(){
+                $.ajax({
+                    type: 'POST',
+                    url: $api_url.petick_postcomment(petopic_id),
+                    data: {'tick_id' : tick_id, 'comment' : commentInput.val()},
+                    crossDomain: true,
+                    async: false,
+                    success: function (res) {                        
+                        hide_content_transition();
+                        show_main_content();
+                        l('>>>>>>>>>>>Start Reload Comment<<<<<<<<<<<<<<<');
+                        loadCommentList(tick_id);
+                        commentInput.val('');
+                    },
+                    error: function(e) {                        
+                        hide_content_transition();
+                        show_main_content();                        
+                    }
+                });
+            }
 
             return false;
         });

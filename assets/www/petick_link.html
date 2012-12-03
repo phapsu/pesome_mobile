@@ -8,11 +8,11 @@
     <body>
         <div></div>
         <div data-role="page" id="petick-link">
-            <div data-role="header" data-position="fixed">
+            <div data-role="header" data-position="fixed" id="headerMain">
                     <h1>Link</h1>
                     <a href="#" data-rel="back" data-icon="arrow-l" data-transition="flip">Back</a>
             </div>
-            <div data-role="content">
+            <div data-role="content" id="contentMain">
                 <div class="wrapper">
                     <div class="map_container" style="">
                         <img alt="" style="max-width: 280px;" id="linkPic" />
@@ -24,6 +24,15 @@
                     </div>
                 </div>
             </div>
+            
+            <div id="commentZone"></div>
+            <script type="text/javascript">
+                $(function(){
+                    $('#commentZone').load('comment.html', function(){
+                       $('#petick-link').trigger('create');
+                    });
+                });
+            </script>
         </div>
 
          

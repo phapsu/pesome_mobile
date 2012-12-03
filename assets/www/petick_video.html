@@ -5,13 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <div></div>
         <div data-role="page" id="petick-video">
-            <div data-role="header" data-position="fixed">
+            <div data-role="header" data-position="fixed" id="headerMain">
                     <h1>Video</h1>
                     <a href="#" data-rel="back" data-icon="arrow-l" data-transition="flip">Back</a>
             </div>
-            <div data-role="content">
+            <div data-role="content" id="contentMain">
                 <div class="wrapper">
                     <div class="map_container" style="">
                         <a href="#" title="Play Video" id="playVideo">
@@ -24,6 +23,14 @@
                     </div>
                 </div>
             </div>
+            <div id="commentZone"></div>
+            <script type="text/javascript">
+                $(function(){
+                    $('#commentZone').load('comment.html', function(){
+                       $('#petick-video').trigger('create');
+                    });
+                });
+            </script>
         </div>
 
         
