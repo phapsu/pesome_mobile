@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mobile PeSoMe</title>
+        <meta id="extViewportMeta" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+        <link rel="stylesheet" href="css/bootstrap.css" />
+          <link rel="stylesheet" href="css/idangerous.swiper-1.5.css">
+        <link rel="stylesheet" href="css/jqm.slidemenu.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css" />
+        <link rel="stylesheet" href="css/jqm-icon-pack-2.1.2-fa.css" />
+        <link rel="stylesheet" href="css/pesome.css" />
+
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/json2.js"></script>
+        <script src="js/jquery.mobile-1.2.0.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/bootstrap-dropdown.js"></script>
+        <script  src="js/idangerous.swiper-1.5.min.js"></script>
+        <script  src="js/script.js"></script>
+        <script src="cordova-2.2.0.js"></script>
+        <script src="js/pesome/common.js"></script>
+        <script src="js/jquery.tmpl.min.js"></script>
+        <!--petick audio-->
+        <link rel="stylesheet" type="text/css" href="css/audio.css">
+        <!--petick photo-->
+        <link rel="stylesheet" href="css/photoswipe.css" />
+    </head>
+    <body>
+        <!-- Menu -->
+        <div id="menu" class="slidemenu">
+            <div id="profile">
+                <img src="img/logo.png">
+                <div class="profile_info"><strong>Mobile PeSoMe</strong><br><small>Web App</small></div>
+            </div>
+
+            <h3></h3>
+            <div class="me-search">
+                <div class="pe-search ui-input-search ui-icon-searchfield">
+                    <input type="text" data-type="search" data-mini="true" value="" id="search-mini" name="search-mini" class="ui-input-text" placeholder="Search...">
+                </div>
+            </div>
+
+            <h3></h3>
+
+            <ul>
+                <li><a href="#"><i class="icon-th icon-white"></i>View All</a></li>
+                <li><a href="#"><i class="icon-heart icon-white"></i>I'm A Member</a></li>
+                <li><a href="#"><i class="icon-bookmark icon-white"></i>My Petopic</a></li>
+                <li><a href="#"><i class="icon-eye-open icon-white"></i>My Follow</a></li>
+            </ul>
+
+            <h3></h3>
+
+            <ul>
+
+                <li><a href="#"><i class="icon-plus-sign icon-white"></i>Create Petopic</a></li>
+
+            </ul>
+
+            <h3></h3>
+
+            <ul>
+                <li><a href="#"><i class="icon-user icon-white"></i>Profile</a></li>
+                <li><a href="#"><i class="icon-question-sign icon-white"></i>Help Center</a></li>
+            </ul>
+        </div>
+
+        <!-- Home -->
+        <div data-role="page" id="page-petopic" class="page" data-theme="c">
+
+            <div data-role="header" class="pe-header" data-position="fixed">
+                <a href="#" data-theme="e" data-icon="" class="showMenu"><img src="img/menuicon.png"></a>
+                <h1 style="margin:0">
+                    <a style="margin:4px" href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-theme="e">Category</a>
+                </h1>
+                <div>
+                    <div data-role="popup" id="popupMenu" class="popup-menu" data-theme="a" style="width:270px">
+                        <ul data-role="listview" style="min-width:210px;z-index: 1" data-theme="f">
+                            <li style="border: 0 none;border-radius: 0 0 0 0;padding: 0px;">
+                                <div class="swiper-container swiper-var">
+                                    <div class="pagination-loop"></div>
+                                    <div class="swiper-wrapper ">
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">All</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">All</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">Moto</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">Cars & Motocycles</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">Business</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">Bird lover</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">Architecture</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">Design</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">All</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">Adorable</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">Cars & Motocycles</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">Business</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">Bird lover</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">Architecture</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <ul data-role="listview" data-theme="d">
+                                                <li><a href="">Design</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="post_photo.html" data-theme="b" data-icon="">Capture</a>
+            </div>
+
+            <div data-role="content">
+                <ul id="listposts" data-role="listview"></ul>
+            </div>
+        </div>
+        <!--<div class="loading" id="loader"><img src="img/loader.gif" alt="Loading..."><div><em>Loading the next set of posts...</em></div></div>-->
+
+        <!--<script src="js/leftmenu.js"></script>-->
+        <!--isotope-->
+        <script src="js/scrollpagination.js"></script>
+        <!--<script src="js/jquery.isotope.min.js"></script>-->
+
+        <script src="js/pesome/petopic.js"></script>
+        <script src='js/pesome/petopic_detail.js'></script>
+        <!--petick text-->
+        <script src="js/pesome/petick_text.js"></script>
+        <!--petick link-->
+        <script src="js/pesome/petick_link.js"></script>
+        <!--petick audio-->
+        <script src="js/pesome/petick_audio.js"></script>
+        <!--petick photo-->
+        <script type="text/javascript" src="js/klass.min.js"></script>
+        <script type="text/javascript" src="js/code.photoswipe-3.0.5.min.js"></script>
+        <script src="js/pesome/petick_photo.js"></script>
+        <!--petick video-->
+        <script src="js/video.js"></script>
+        <script src="js/pesome/petick_video.js"></script>
+
+
+        <script type="text/javascript">
+            document.addEventListener('deviceready', this.deviceready, false);
+        </script>
+    </body>
+</html>

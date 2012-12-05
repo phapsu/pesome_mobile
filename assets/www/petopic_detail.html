@@ -3,11 +3,287 @@
     <head>
         <title>Detail</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+         <link rel="stylesheet" href="css/bootstrap.css" />
+        <link rel="stylesheet" href="css/idangerous.swiper-1.5.css">
+        <link rel="stylesheet" href="css/jqm.slidemenu.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css" />
+        <link rel="stylesheet" href="css/jqm-icon-pack-2.1.2-fa.css" />
+        <link rel="stylesheet" href="css/pesome.css" />
+
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/json2.js"></script>
+        <script src="js/jquery.mobile-1.2.0.min.js"></script>   
+        <script type="text/javascript" src="js/app.js"></script>
     </head>
     <body>
+        
+        <!-- Menu -->
+        <!--<div id="menu" class="slidemenu">
+            <div id="profile">
+                <img src="img/logo.png">
+                <div class="profile_info"><strong>Mobile PeSoMe</strong><br><small>Mobile App</small></div>
+            </div>
 
-        <div id="petopic_detail" data-role="page" data-add-back-btn="true">
+            <h3></h3>
+            <div class="me-search">
+                <div class="pe-search ui-input-search ui-icon-searchfield">
+                    <input type="text" data-type="search" data-mini="true" value="" id="search-mini" name="search-mini" class="ui-input-text" placeholder="Search...">
+                </div>
+            </div>
 
+            <h3></h3>
+
+            <ul>
+                <li><a href="#"><i class="icon-th icon-white"></i>View All</a></li>
+                <li><a href="#"><i class="icon-heart icon-white"></i>I'm A Member</a></li>
+                <li><a href="#"><i class="icon-bookmark icon-white"></i>My Petopic</a></li>
+                <li><a href="#"><i class="icon-eye-open icon-white"></i>My Follow</a></li>
+            </ul>
+
+            <h3></h3>
+
+            <ul>
+
+                <li><a href="#"><i class="icon-plus-sign icon-white"></i>Create Petopic</a></li>
+
+            </ul>
+
+            <h3></h3>
+
+            <ul>
+                <li><a href="#"><i class="icon-user icon-white"></i>Profile</a></li>
+                <li><a href="#"><i class="icon-question-sign icon-white"></i>Help Center</a></li>
+            </ul>
+        </div>  -->
+        
+        <!--content -->
+        <div data-role="page" id="petopic_detail" class="page" data-theme="c">    
+            <div data-role="header" class="pe-header" data-position="fixed">
+                 <a href="#" data-theme="e" data-icon="" class="showMenu"><img src="img/menuicon.png"></a>
+                <h1 style="margin:0">
+                    <a style="margin:4px" href="#popupPost" data-rel="popup" data-role="button" data-inline="true" data-theme="e">Post</a>
+                </h1>
+
+                <div>
+                    <div data-role="popup" id="popupPost" class="popup-post">
+                        <div class="swiper-container swiper-loop">
+                            <div class="pagination-loop"></div>
+                            <div class="swiper-wrapper " style="width: 300px; transform: translate3d(0px, 0px, 0px); transition-duration: 0.3s;">
+                                <div class="swiper-slide red-slide" style="width: 60px; height: 50px;">
+                                    <a data-inline="true" data-mini="true" data-iconpos="top" data-icon="bookmark" data-role="button" data-theme="k" href="" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-mini ui-btn-inline ui-btn-icon-top ui-btn-up-k"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Petick</span><span class="ui-icon ui-icon-bookmark ui-icon-shadow">&nbsp;</span></span></a>
+                                </div>
+                                <div class="swiper-slide blue-slide" style="width: 60px; height: 50px;">
+                                    <a data-inline="true" data-mini="true" data-iconpos="top" data-icon="film" data-role="button" data-theme="k" href="" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-mini ui-btn-inline ui-btn-icon-top ui-btn-up-k"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Video</span><span class="ui-icon ui-icon-film ui-icon-shadow">&nbsp;</span></span></a>
+                                </div>
+                                <div class="swiper-slide red-slide" style="width: 60px; height: 50px;">
+                                    <a data-inline="true" data-mini="true" data-iconpos="top" data-icon="headphones" data-role="button" data-theme="k" href="" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-mini ui-btn-inline ui-btn-icon-top ui-btn-up-k"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Audio</span><span class="ui-icon ui-icon-headphones ui-icon-shadow">&nbsp;</span></span></a>
+                                </div>
+                                <div class="swiper-slide blue-slide" style="width: 60px; height: 50px;">
+                                    <a data-inline="true" data-mini="true" data-iconpos="top" data-icon="picture" data-role="button" data-theme="k" href="" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-mini ui-btn-inline ui-btn-icon-top ui-btn-up-k"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Photo</span><span class="ui-icon ui-icon-picture ui-icon-shadow">&nbsp;</span></span></a>
+                                </div>
+                                <div class="swiper-slide red-slide" style="width: 60px; height: 50px;">
+                                    <a data-inline="true" data-mini="true" data-iconpos="top" data-icon="file" data-role="button" data-theme="k" href="" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-k ui-shadow ui-btn-corner-all ui-mini ui-btn-inline ui-btn-icon-top"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">File</span><span class="ui-icon ui-icon-file ui-icon-shadow">&nbsp;</span></span></a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+
+
+            <div class="de-listview" style="padding:10px">
+
+                <ul data-role="listview" data-theme="k">
+                    <li>
+
+                        <div class="icone-home">
+                            <div data-role="controlgroup" data-type="horizontal" class="arrow-up" style="float:left;margin-right: 5px;">
+                                <a href="index.html" data-role="button" data-icon="eye-open" data-inline="true" data-mini="true" class="style-icon">Follow</a>
+                                <a href="index.html" data-role="button" data-icon="plus" data-inline="true" data-mini="true" class="style-icon">Add Me In</a>
+                            </div>
+
+
+                            <div class="arrow-down">
+                                <a href="#overlayDown" data-rel="popup" data-role="button" data-icon="arrow-d" data-inline="true" data-mini="true" style="margin: 0;padding: 8px 0;border-radius: 8px;"></a>
+
+                                <div data-role="popup" id="overlayDown" class="overlayDown pull-right">
+                                    <ul data-role="listview" style="min-width:185px;" data-theme="c">
+                                        <li class="liarrow-down">
+                                            <a href="update.html">Update</a>
+                                        </li>
+                                        <li class="liarrow-down">
+                                            <a href="#popupDelete" class="ui-btn" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-transition="pop" data-mini="true">Delete</a>
+                                            <div data-role="popup" id="popupDelete" data-overlay-theme="a" data-theme="c" style="max-width:400px;" class="ui-corner-all">
+                                                <div data-role="header" data-theme="a" class="ui-corner-top">
+                                                    <h1>Delete</h1>
+                                                </div>
+                                                <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+                                                    <p>Are you sure you want to delete this page?</p>
+                                                    <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" data-mini="true">Cancel</a>
+                                                    <a href="#" data-role="button" data-inline="true" data-rel="back" data-transition="flow" data-theme="e" data-mini="true">Agree</a>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="liarrow-down">
+                                            <a href="setting.html">Setting</a></li>
+                                        <li class="liarrow-down">
+                                            <a href="#popupVemember" class="ui-btn" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-transition="pop" data-mini="true">Verify Member</a>
+                                            <div data-role="popup" id="popupVemember" data-overlay-theme="a" data-theme="c" style="max-width:400px;" class="ui-corner-all">
+                                                <div data-role="header" data-theme="a" class="ui-corner-top">
+                                                    <h1>Verify Member</h1>
+                                                </div>
+                                                <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content" style="padding:0">
+                                                    <div class="de-listview">
+                                                        <ul data-role="listview" data-theme="t" style="margin:0;">
+                                                            <li>
+                                                                <span class="icon-vemem">
+                                                                    <a href="" data-role="button" data-inline="true" data-mini="true">Accept</a>
+                                                                    <a href="" data-role="button" data-inline="true" data-mini="true">No Accept</a>
+                                                                </span>
+                                                                <a href="" data-theme="k">
+                                                                    <img src="img/docs/album-mg.jpg" />
+                                                                    <strong>The Suburbs</strong>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <span class="icon-vemem">
+                                                                    <a href="" data-role="button" data-inline="true" data-mini="true">Accept</a>
+                                                                    <a href="" data-role="button" data-inline="true" data-mini="true">No Accept</a>
+                                                                </span>
+                                                                <a href="" data-theme="k">
+                                                                    <img src="img/docs/album-ws.jpg" />
+                                                                    <strong>The Suburbs</strong>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <span class="icon-vemem">
+                                                                    <a href="" data-role="button" data-inline="true" data-mini="true">Accept</a>
+                                                                    <a href="" data-role="button" data-inline="true" data-mini="true">No Accept</a>
+                                                                </span>
+                                                                <a href="" data-theme="k">
+                                                                    <img src="img/docs/album-ok.jpg" />
+                                                                    <strong>The Suburbs</strong>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="liarrow-down">
+                                            <a href="#popupFollow" class="ui-btn" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-transition="pop" data-mini="true">Followers</a>
+                                            <div data-role="popup" id="popupFollow" data-overlay-theme="a" data-theme="c" style="max-width:400px;" class="ui-corner-all">
+                                                <div data-role="header" data-theme="a" class="ui-corner-top">
+                                                    <h1>Followers</h1>
+                                                </div>
+                                                <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content" style="padding:0">
+                                                    <div class="de-listview">
+                                                        <ul data-role="listview" data-theme="t" style="margin:0;">
+                                                            <li>
+                                                                <a href="" data-theme="k">
+                                                                    <img src="img/docs/album-mg.jpg" />
+                                                                    <strong>The Suburbs</strong>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="" data-theme="k">
+                                                                    <img src="img/docs/album-ws.jpg" />
+                                                                    <strong>The Suburbs</strong>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="" data-theme="k">
+                                                                    <img src="img/docs/album-ok.jpg" />
+                                                                    <strong>The Suburbs</strong>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <a href="index.html" data-theme="k">
+                            <img src="" id="petopicPic"/>
+                            <h3 id="petopicTitle"></h3>
+                            <h4 id="petopicDesc"></h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            
+            <div style="padding: 0" data-role="content" class="ui-content" role="main">
+                <div class="scroller-fr main">
+                    <div class="swiper-container swiper-fr">
+                        <div class="pagination-loop"><span class="swiper-pagination-switch    swiper-active-switch"></span><span class="swiper-pagination-switch    swiper-active-switch"></span><span class="swiper-pagination-switch    swiper-active-switch"></span><span class="swiper-pagination-switch    swiper-active-switch"></span><span class="swiper-pagination-switch    swiper-active-switch"></span><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch"></span></div>
+                        <div class="swiper-wrapper " style="width: 1560px; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);">
+                            <div class="swiper-slide friendall" style="width: 130px; height: 43px;">
+                                <img src="img/img/tegan.jpg">
+                                <div class="friend_info"><strong><a class="ui-link">Tegan Snyder</a></strong><br><small>Web &amp; Mobile</small></div>
+                            </div>
+                            <div class="swiper-slide friendall" style="width: 130px; height: 43px;">
+                                <img src="img/img/tegan.jpg">
+                                <div class="friend_info"><strong><a class="ui-link">Tegan Snyder</a></strong><br><small>Web &amp; Mobile</small></div>
+                            </div>
+                            <div class="swiper-slide friendall" style="width: 130px; height: 43px;">
+                                <img src="img/img/tegan.jpg">
+                                <div class="friend_info"><strong><a class="ui-link">Tegan Snyder</a></strong><br><small>Web &amp; Mobile</small></div>
+                            </div>
+                            <div class="swiper-slide friendall" style="width: 130px; height: 43px;">
+                                <img src="img/img/tegan.jpg">
+                                <div class="friend_info"><strong><a class="ui-link">Tegan Snyder</a></strong><br><small>Web &amp; Mobile</small></div>
+                            </div>
+                            <div class="swiper-slide friendall" style="width: 130px; height: 43px;">
+                                <img src="img/img/tegan.jpg">
+                                <div class="friend_info"><strong><a class="ui-link">Tegan Snyder</a></strong><br><small>Web &amp; Mobile</small></div>
+                            </div>
+                            <div class="swiper-slide friendall" style="width: 130px; height: 43px;">
+                                <img src="img/img/tegan.jpg">
+                                <div class="friend_info"><strong><a class="ui-link">Tegan Snyder</a></strong><br><small>Web &amp; Mobile</small></div>
+                            </div>
+                            <div class="swiper-slide friendall" style="width: 130px; height: 43px;">
+                                <img src="img/img/tegan.jpg">
+                                <div class="friend_info"><strong><a class="ui-link">Tegan Snyder</a></strong><br><small>Web &amp; Mobile</small></div>
+                            </div>
+                            <div class="swiper-slide friendall" style="width: 130px; height: 43px;">
+                                <img src="img/img/tegan.jpg">
+                                <div class="friend_info"><strong><a class="ui-link">Tegan Snyder</a></strong><br><small>Web &amp; Mobile</small></div>
+                            </div>
+                            <div class="swiper-slide friendall" style="width: 130px; height: 43px;">
+                                <img src="img/img/tegan.jpg">
+                                <div class="friend_info"><strong><a class="ui-link">Tegan Snyder</a></strong><br><small>Web &amp; Mobile</small></div>
+                            </div>
+                            <div class="swiper-slide friendall" style="width: 130px; height: 43px;">
+                                <img src="img/img/tegan.jpg">
+                                <div class="friend_info"><strong><a class="ui-link">Tegan Snyder</a></strong><br><small>Web &amp; Mobile</small></div>
+                            </div>
+                            <div class="swiper-slide friendall" style="width: 130px; height: 43px;">
+                                <img src="img/img/tegan.jpg">
+                                <div class="friend_info"><strong><a class="ui-link">Tegan Snyder</a></strong><br><small>Web &amp; Mobile</small></div>
+                            </div>
+                            <div class="swiper-slide friendall" style="width: 130px; height: 43px;">
+                                <img src="img/img/tegan.jpg">
+                                <div class="friend_info"><strong><a class="ui-link">Tegan Snyder</a></strong><br><small>Web &amp; Mobile</small></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            
+            
+            
+            <!--
             <div data-role="header">
                 <h1>Title</h1>
             </div>
@@ -24,6 +300,10 @@
 
                 </div>
             </div>
+            -->
+            
+            
+            
         </div>
 
     </body>
