@@ -40,13 +40,15 @@
 
 
 <!-- list comments -->
-<div data-role="content" id="commentList"></div>
-<script id="tmplComment" type="text/x-jquery-tmpl">
+<div data-role="content" id="commentListContainer">
     <div class="wrapper">
         <div class="map_container" style="">
-            <p id="commentContent">${comment.comment}</p>
+            <ul id="commentList" data-role="listview" data-inset="true"></ul>
         </div>
     </div>
+</div>
+<script id="tmplComment" type="text/x-jquery-tmpl">
+    <li><img src=" ${getThumbnail()}" alt="${comment.user.name}"><p>${comment.comment}<small><i> by ${comment.user.name}</i></small></p></li>
 </script>
 <!-- contentTransition -->
 
@@ -56,6 +58,7 @@
     var headerMain = null;
     var contentMain = null;
     var commentContainer = null;
+    var commentListContainer = null;
     var commentList = null;
     var footerMain = null;
     var formComment = null;
@@ -70,14 +73,14 @@
         headerMain.show();
         contentMain.show();
         commentContainer.show();
-        commentList.show();
+        commentListContainer.show();
         footerMain.show();
     }
     function hide_main_content(){
         headerMain.hide();
         contentMain.hide();
         commentContainer.hide();
-        commentList.hide();
+        commentListContainer.hide();
         footerMain.hide();
     }
 
@@ -98,6 +101,9 @@
         errorDialog.hide();
     }
 
+    function getThumbnail() {
+        return $full_base_url+this.data.comment.user.thumb;
+    }
 
     function loadCommentList(tick_id){
         $.ajax({
@@ -109,11 +115,12 @@
                 $comment = res.tick.comments;
                 $('#commentList').html("");
                 $("#tmplComment").tmpl( $comment ).appendTo("#commentList");
+                $('#commentList').listview('refresh');
             },
             error: function(e) {
                 console.log(e.message);
             }
-        });        
+        });
     }
 
 
@@ -122,6 +129,7 @@
         headerMain = $('#headerMain');
         contentMain = $('#contentMain');
         commentContainer = $('#commentContainer');
+        commentListContainer = $('#commentListContainer');
         commentList = $('#commentList');
         footerMain = $('#footerMain');
         formComment = $('#formComment');
@@ -179,16 +187,16 @@
                     data: {'tick_id' : tick_id, 'comment' : commentInput.val()},
                     crossDomain: true,
                     async: false,
-                    success: function (res) {                        
+                    success: function (res) {
                         hide_content_transition();
                         show_main_content();
                         l('>>>>>>>>>>>Start Reload Comment<<<<<<<<<<<<<<<');
                         loadCommentList(tick_id);
                         commentInput.val('');
                     },
-                    error: function(e) {                        
+                    error: function(e) {
                         hide_content_transition();
-                        show_main_content();                        
+                        show_main_content();
                     }
                 });
             }
