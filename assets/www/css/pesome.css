@@ -556,3 +556,6 @@ h5.ui-li-heading{
     margin-top: -38px;
     position: absolute;
 }
+.ui-loader .ui-icon {
+    margin: 0 !important;
+}

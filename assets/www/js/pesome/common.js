@@ -22,6 +22,12 @@ var $api_url  = {
     auth : function(){
         return $full_base_url+'/oauth/token';
     },
+    me : function(){
+        return $full_base_url+'/api/users/me?access_token='+ $access_token;
+    },
+    category : function(){
+        return $full_base_url+'/api/petopics/get_category?access_token='+ $access_token;
+    },
     petopic : function(){
         return $full_base_url+'/api/petopics?access_token='+ $access_token;
     },
@@ -40,6 +46,9 @@ var $api_url  = {
     },
     petopic_getvideo : function(video_id){
         return $full_base_url+'/api/peticks/get_video?video_id='+video_id+'&access_token='+ $access_token;
+    },
+    petopic_getlist_friend : function(){
+        return $full_base_url+'/api/petopics/members?access_token='+ $access_token;
     },
     petick_detail : function(petopic_id, tick_id){
         return $full_base_url+'/api/petopics/get_petick?id='+petopic_id+'&tick_id='+tick_id+'&access_token='+ $access_token;

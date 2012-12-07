@@ -1,6 +1,6 @@
 $(document).bind("mobileinit", function () {
     $.mobile.pushStateEnabled = true;
-    $.mobile.fixedToolbars.setTouchToggleEnabled(false);
+    $.mobile.fixedToolbars.setTouchToggleEnabled(true);
 });
  
 $(function () {

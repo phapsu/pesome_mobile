@@ -6,7 +6,8 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-        <link rel="stylesheet" href="css/bootstrap.css" />        
+        <link rel="stylesheet" href="css/idangerous.swiper-1.5.css">
+        <link href="css/gridalicious.css" rel="stylesheet">
         <link rel="stylesheet" href="css/jqm.slidemenu.css" />
         <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css" />
         <link rel="stylesheet" href="css/jqm-icon-pack-2.1.2-fa.css" />
@@ -15,10 +16,20 @@
         <script src="js/jquery-1.8.3.min.js"></script>
         <script src="js/json2.js"></script>
         <script src="js/jquery.mobile-1.2.0.min.js"></script>   
+         <script src="js/iscroll-lite.js" type="text/javascript"></script>
         <script type="text/javascript" src="js/app.js"></script>
+        <script src="js/jquery.fittext.js"></script>
+        <script src="js/jquery.grid-a-licious.js"></script>        
+        <script src="js/idangerous.swiper-1.5.5.js"></script>
+        <script src="js/script.js"></script>
+        
         <script type="text/javascript" src="js/bootstrap-dropdown.js"></script>
         
+   
+        
+        
         <script src="js/jquery.nicescroll.min.js"></script>
+        <!--load thu vien phonegap-->
         <script src="cordova-2.2.0.js"></script> 
         <script src="js/pesome/common.js"></script>
         <script src="js/jquery.tmpl.min.js"></script>
@@ -31,8 +42,8 @@
         <!-- Menu -->
         <div id="menu" class="slidemenu">
             <div id="profile">
-                <img src="img/logo.png">
-                <div class="profile_info"><strong>Mobile PeSoMe</strong><br><small>Mobile App</small></div>
+                <img id="avatar" />
+                <div class="profile_info"><strong id="username"></strong><br><small><a id="a_logout"><span style="color:#C4CCDA">Logout</span></a></small></div>
             </div>
 
             <h3></h3>
@@ -73,12 +84,11 @@
             <div data-role="header" class="pe-header" data-position="fixed">
                 <a href="#" data-theme="e" data-icon="" class="showMenu"><img src="img/menuicon.png"></a>
                 <h1 style="margin:0">
-                    <a style="margin:4px" href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-theme="e">Category</a>
+                    <a style="margin:4px" href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-theme="e"><span class="pe-category">Category</span><span id="msg"></span></a>
                 </h1>
                 <div data-role="popup" id="popupMenu" class="popup-menu" data-theme="a" style="width:270px;background: #fff">
                     <ul data-role="listview" data-filter="true" id="list_category" data-theme="d"></ul>
                 </div>
-                <a href="post_photo.html" data-theme="e" data-icon="">Upload</a>
             </div>
 
             <div data-role="content">
